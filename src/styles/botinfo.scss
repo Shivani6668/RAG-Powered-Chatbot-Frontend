@@ -23,30 +23,44 @@
     }
   }
 
-  h2 {
-    font-size: 2.2rem;
-    color: #5f6fff;
+  .bot-text {
+    h2 {
+      font-size: 2.2rem;
+      color: #5f6fff;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #444;
+      margin: 1rem 0;
+    }
+
+    button {
+      background: #5f6fff;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.6rem;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        background: #4a5bff;
+      }
+    }
   }
 
-  p {
-    font-size: 1.1rem;
-    color: #444;
-    margin: 1rem 0;
-  }
+  // Mobile adjustments
+  @media (max-width: 768px) {
+    .bot-text {
+      display: none; // hide text and button
+    }
 
-  button {
-    background: #5f6fff;
-    color: white;
-    border: none;
-    padding: 0.8rem 1.6rem;
-    border-radius: 30px;
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: 0.3s;
-
-    &:hover {
-      background: #4a5bff;
+    .bot-avatar {
+      width: 120px;   // smaller width
+      height: 120px;  // smaller height
     }
   }
 }

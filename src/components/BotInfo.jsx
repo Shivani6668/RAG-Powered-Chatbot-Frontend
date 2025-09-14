@@ -6,7 +6,7 @@ const BotInfo = () => {
     <div className="bot-info">
       <div className="bot-avatar">
         <video
-          src="/video.mp4"  
+          src="/video.mp4"
           autoPlay
           loop
           muted
@@ -15,12 +15,14 @@ const BotInfo = () => {
         />
       </div>
 
-      <h2>Hello!</h2>
-      <p>
-        My name is <strong>Robbie</strong><br />
-        and I'm here to help you with news updates!
-      </p>
-      <button>Ask Robbie</button>
+      <div className="bot-text">
+        <h2>Hello!</h2>
+        <p>
+          My name is <strong>NewsNexus</strong><br />
+          and I'm here to help you with news updates!
+        </p>
+        <button>Ask NewsNexus</button>
+      </div>
     </div>
   );
 };
