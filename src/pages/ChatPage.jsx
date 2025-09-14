@@ -7,7 +7,7 @@ import ChatHeader from '../components/ChatHeader';
 import BotInfo from '../components/BotInfo';
 import '../styles/chat.scss';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/chat';
+const API_URL = import.meta.env.VITE_API_URL || 'https://rag-powered-chatbot-backend.onrender.com/chat';
 
 const ChatPage = () => {
   const [sessionId, setSessionId] = useState('');
