@@ -5,7 +5,6 @@ import ChatMessage from '../components/ChatMessage';
 import ChatInput from '../components/ChatInput';
 import ChatHeader from '../components/ChatHeader';
 import BotInfo from '../components/BotInfo';
-import { Circles } from 'react-loader-spinner'; // 💫 import spinner
 
 import '../styles/chat.scss';
 
@@ -13,7 +12,6 @@ const API_URL = import.meta.env.VITE_API_URL || 'https://rag-powered-chatbot-bac
 
 const ChatPage = () => {
   const chatWindowRef = useRef(null);
-const [historyLoading, setHistoryLoading] = useState(true);
 
   const [sessionId, setSessionId] = useState('');
   const [chat, setChat] = useState([]);
@@ -42,15 +40,12 @@ useEffect(() => {
 
   const fetchHistory = async (id) => {
     try {
-          setHistoryLoading(true);
 
       const res = await axios.get(`${API_URL}/${id}`);
       setChat(res.data.history || []);
     } catch (err) {
       console.error(err);
-    } finally {
-    setHistoryLoading(false);
-  }
+    } 
   };
 
   const sendMessage = async (message) => {
@@ -81,23 +76,11 @@ useEffect(() => {
         <ChatHeader title="NewsNexus" />
         
         <div className="chat-window" ref={chatWindowRef}>
-  {historyLoading ? (
- <Circles
-    height="60"
-    width="60"
-    color="#5f6fff"
-    ariaLabel="loading"
-    wrapperStyle={{}}
-    wrapperClass=""
-    visible={true}
-  />) : (
-    <>
+
       {chat.map((msg, i) => (
         <ChatMessage key={i} role={msg.role} message={msg.message} />
       ))}
       {loading && <ChatMessage role="bot" isTyping />}
-    </>
-  )}
 </div>
 
         <ChatInput onSend={sendMessage} />
